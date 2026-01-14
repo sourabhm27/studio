@@ -1,3 +1,4 @@
+
 import type { LucideIcon } from 'lucide-react';
 import {
   Scissors,
@@ -54,8 +55,8 @@ export const skills: Record<SkillCategory, Skill[]> = {
     { name: 'Thumbnail & Visual Storytelling', icon: Clapperboard },
   ],
   'Tools & Software': [
-    { name: 'Adobe Premiere Pro', icon: Bot },
     { name: 'DaVinci Resolve', icon: Bot },
+    { name: 'Adobe Premiere Pro', icon: Bot },
     { name: 'Final Cut Pro', icon: Bot },
     { name: 'Basic Photography & Videography', icon: Camera },
   ],
