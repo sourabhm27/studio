@@ -13,8 +13,8 @@ const Skills = () => {
         </p>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {Object.entries(skills).map(([category, skillList], index) => (
-            <Card key={category} className="animate-in fade-in-0 zoom-in-95" style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'backwards' }}>
+          {Object.entries(skills).map(([category, skillList]) => (
+            <Card key={category}>
               <CardHeader>
                 <CardTitle className="font-headline text-xl">{category}</CardTitle>
               </CardHeader>
@@ -31,13 +31,13 @@ const Skills = () => {
         </div>
         
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-            <Card className="animate-in fade-in-0 zoom-in-95" style={{ animationDelay: '600ms', animationFillMode: 'backwards' }}>
+            <Card>
                 <CardHeader><CardTitle className="font-headline text-xl">Languages</CardTitle></CardHeader>
                 <CardContent className="flex flex-wrap justify-center gap-3">
                     {languages.map(lang => <Badge key={lang} variant="outline" className="px-3 py-1 text-sm">{lang}</Badge>)}
                 </CardContent>
             </Card>
-             <Card className="animate-in fade-in-0 zoom-in-95" style={{ animationDelay: '750ms', animationFillMode: 'backwards' }}>
+             <Card>
                 <CardHeader><CardTitle className="font-headline text-xl">Interests</CardTitle></CardHeader>
                 <CardContent className="flex flex-wrap justify-center gap-3">
                     {interests.map(interest => <Badge key={interest} variant="outline" className="px-3 py-1 text-sm">{interest}</Badge>)}

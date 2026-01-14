@@ -51,8 +51,8 @@ const Portfolio = () => {
         )}
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <div key={project.id} className="animate-in fade-in-0 zoom-in-95" style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'backwards'}}>
+          {filteredProjects.map((project) => (
+            <div key={project.id}>
               <ProjectCard project={project} />
             </div>
           ))}

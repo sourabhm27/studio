@@ -56,7 +56,7 @@ const Contact = () => {
         </div>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-2">
-            <div className="space-y-6 animate-in fade-in-0 slide-in-from-left-12 duration-500">
+            <div className="space-y-6">
                 <h3 className="font-headline text-xl font-semibold">Contact Information</h3>
                 <p className="text-muted-foreground">Fill up the form and I will get back to you within 24 hours. Or you can reach me via:</p>
                 <div className="space-y-4">
@@ -75,7 +75,7 @@ const Contact = () => {
                 </div>
             </div>
 
-          <div className="animate-in fade-in-0 slide-in-from-right-12 duration-500">
+          <div>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField

@@ -17,7 +17,7 @@ const Experience = () => {
           <div className="space-y-8">
             <h3 className="font-headline text-2xl font-bold text-center lg:text-left">Professional Experience</h3>
             {experience.map((item, index) => (
-              <div key={index} className="flex gap-4 animate-in fade-in-0 slide-in-from-left-12 duration-500" style={{ animationDelay: `${index * 150}ms` }}>
+              <div key={index} className="flex gap-4">
                 <div className="mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <item.icon className="h-6 w-6" />
                 </div>
@@ -33,7 +33,7 @@ const Experience = () => {
           <div className="space-y-8">
             <h3 className="font-headline text-2xl font-bold text-center lg:text-left">Education & Achievements</h3>
             {educationAndAchievements.map((item, index) => (
-              <div key={index} className="flex gap-4 animate-in fade-in-0 slide-in-from-right-12 duration-500" style={{ animationDelay: `${index * 150}ms` }}>
+              <div key={index} className="flex gap-4">
                 <div className="mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
                   <item.icon className="h-6 w-6" />
                 </div>

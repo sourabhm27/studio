@@ -30,8 +30,14 @@ const Header = () => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      const top = element.getBoundingClientRect().top + window.scrollY - 80; // 80px offset for header height
-      window.scrollTo({ top, behavior: 'smooth' });
+      const headerOffset = 80; // Height of the sticky header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
     setIsMobileMenuOpen(false); // Close mobile menu on link click
   };
@@ -40,8 +46,8 @@ const Header = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full border-b border-transparent transition-all duration-300',
-        isScrolled ? 'border-border bg-background/80 backdrop-blur-lg' : 'bg-background/0'
+        'sticky top-0 z-50 w-full border-b transition-all duration-300',
+        isScrolled ? 'border-border bg-background/80 backdrop-blur-lg' : 'bg-background/0 border-transparent'
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">

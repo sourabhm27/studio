@@ -9,15 +9,27 @@ import Contact from '@/components/sections/contact';
 
 export default function Home() {
   return (
-    <div className="flex min-h-dvh flex-col">
+    <div className="flex min-h-dvh flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <Hero />
-        <About />
-        <Skills />
-        <Portfolio />
-        <Experience />
-        <Contact />
+        <div className="animate-in fade-in duration-500">
+            <Hero />
+        </div>
+        <div className="animate-in fade-in duration-500 delay-200">
+            <About />
+        </div>
+        <div className="animate-in fade-in duration-500 delay-300">
+            <Skills />
+        </div>
+        <div className="animate-in fade-in duration-500 delay-400">
+            <Portfolio />
+        </div>
+        <div className="animate-in fade-in duration-500 delay-500">
+            <Experience />
+        </div>
+        <div className="animate-in fade-in duration-500 delay-600">
+            <Contact />
+        </div>
       </main>
       <Footer />
     </div>
