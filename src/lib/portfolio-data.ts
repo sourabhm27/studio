@@ -138,4 +138,15 @@ export const projects: Project[] = [
     image: PlaceHolderImages.find(img => img.id === 'project-1')!,
     videoStoragePath: 'projects/1/video.mp4',
   },
+  {
+    id: '2',
+    title: 'E Cell SMVIT',
+    category: 'YouTube',
+    description:
+      'Where ideas spark and dreams take flight, this is E Cell SMVIT! Let’s build, create, and hustle.',
+    skills: ['Video Editing', 'Community', 'Promotion'],
+    url: 'https://youtu.be/dSh6yQt6GFQ',
+    image: PlaceHolderImages.find(img => img.id === 'project-7')!,
+    videoStoragePath: 'projects/2/video.mp4',
+  },
 ];
