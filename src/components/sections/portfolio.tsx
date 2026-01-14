@@ -25,7 +25,7 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="bg-card">
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">My Portfolio</h2>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
           A selection of projects that showcase my passion for visual storytelling and technical skills.

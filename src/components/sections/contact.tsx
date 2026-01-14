@@ -47,7 +47,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="bg-card">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Get In Touch</h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">

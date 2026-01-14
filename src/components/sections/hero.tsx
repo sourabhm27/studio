@@ -12,14 +12,14 @@ const Hero = () => {
           backgroundImage: 'radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.05), hsl(var(--background)) 70%)',
         }}
       />
-      <div className="container relative mx-auto flex h-full flex-col items-center justify-center text-center">
+      <div className="container relative mx-auto flex h-full flex-col items-center justify-center px-4 text-center md:px-6">
         <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
           {personalInfo.name}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl">
           Video Editor & Content Creator specializing in engaging short-form and long-form content.
         </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a href="#portfolio">
             <Button size="lg">View My Work</Button>
           </a>
