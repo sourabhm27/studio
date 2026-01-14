@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '../ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { ThemeToggleButton } from '../theme-toggle-button';
 
 const NAV_LINKS = [
   { name: 'About', href: '#about' },
@@ -70,14 +71,16 @@ const Header = () => {
           ))}
         </nav>
         
-        <div className='hidden md:block'>
+        <div className='hidden md:flex items-center gap-2'>
+          <ThemeToggleButton />
           <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>
             <Button>Get in Touch</Button>
           </a>
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggleButton />
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon">
