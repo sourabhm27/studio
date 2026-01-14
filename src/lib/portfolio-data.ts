@@ -169,5 +169,15 @@ export const projects: Project[] = [
     url: 'https://youtu.be/Wsg_x5pgc2k',
     image: PlaceHolderImages.find(img => img.id === 'project-9')!,
     videoStoragePath: 'projects/4/video.mp4',
+  },
+  {
+    id: '5',
+    title: 'Concept Media Assignment',
+    category: 'Reels',
+    description: 'A creative concept video created as an assignment for Concept Media.',
+    skills: ['Video Editing', 'Concept Development', 'Social Media'],
+    url: 'https://youtube.com/shorts/0igs_zKyV8c',
+    image: PlaceHolderImages.find(img => img.id === 'project-5')!,
+    videoStoragePath: 'projects/5/video.mp4',
   }
 ];
