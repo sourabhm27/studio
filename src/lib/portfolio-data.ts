@@ -138,28 +138,6 @@ export const projects: Project[] = [
     videoStoragePath: '',
   },
   {
-    id: '2',
-    title: 'Slick Product Demo',
-    category: 'Short-form',
-    description:
-      'A sleek and professional product demonstration video created for a tech startup. Focused on clean visuals, smooth animations, and a clear, concise narrative to highlight key features.',
-    skills: ['DaVinci Resolve', 'Motion Graphics', 'Visual Storytelling'],
-    url: '#',
-    image: PlaceHolderImages.find(img => img.id === 'project-2')!,
-    videoStoragePath: '',
-  },
-  {
-    id: '3',
-    title: 'Hampi - A Cinematic Journey',
-    category: 'Long-form',
-    description:
-      'A cinematic travel vlog exploring the beautiful ruins of Hampi. This long-form video uses stunning videography, drone shots, and a carefully crafted narrative to tell the story of the ancient city.',
-    skills: ['Final Cut Pro', 'Color Correction', 'Videography'],
-    url: '#',
-    image: PlaceHolderImages.find(img => img.id === 'project-3')!,
-    videoStoragePath: '',
-  },
-  {
     id: '4',
     title: 'My YouTube Studio Tour',
     category: 'YouTube',
@@ -168,28 +146,6 @@ export const projects: Project[] = [
     skills: ['Audience Engagement', 'Content Planning', 'YouTube Analytics'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-4')!,
-    videoStoragePath: '',
-  },
-  {
-    id: '5',
-    title: 'Viral Social Media Ad',
-    category: 'Short-form',
-    description:
-      'A high-energy, 30-second ad designed for Instagram and TikTok. Utilized trending audio and formats to maximize reach and engagement for a local fashion brand.',
-    skills: ['Reel Creation', 'Adobe Premiere Pro', 'Trending Formats'],
-    url: '#',
-    image: PlaceHolderImages.find(img => img.id === 'project-5')!,
-    videoStoragePath: '',
-  },
-  {
-    id: '6',
-    title: 'Kinetic Typography Explainer',
-    category: 'Long-form',
-    description:
-      'An animated explainer video using kinetic typography to break down a complex topic. This project showcases skills in timing, animation, and making information visually appealing.',
-    skills: ['After Effects Basics', 'Kinetic Typography', 'Sound Design'],
-    url: '#',
-    image: PlaceHolderImages.find(img => img.id === 'project-6')!,
     videoStoragePath: '',
   },
 ];
