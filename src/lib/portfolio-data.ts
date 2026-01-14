@@ -98,7 +98,7 @@ export const educationAndAchievements = [
     {
         icon: Award,
         title: "Winner – Photography & Reel Making Competition",
-        subtitle: "at Elcro Green",
+        subtitle: "at Electro Green",
         description: "Awarded first place for creative photography and compelling reel creation, showcasing technical and artistic skills.",
     },
     {
@@ -128,14 +128,14 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'Elcro Green Event Reel',
+    title: 'Electro Green Event Reel',
     category: 'Reels',
     description:
-      'A dynamic and fast-paced reel capturing the highlights of the Elcro Green event. This project won the reel-making competition, showcasing quick cuts, engaging music sync, and vibrant color grading.',
+      'A dynamic and fast-paced reel capturing the highlights of the Electro Green event. This project won the reel-making competition, showcasing quick cuts, engaging music sync, and vibrant color grading.',
     skills: ['Adobe Premiere Pro', 'Color Grading', 'Sound Design'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-1')!,
-    videoStoragePath: '',
+    videoStoragePath: 'projects/1/video.mp4',
   },
   {
     id: '4',
@@ -146,6 +146,6 @@ export const projects: Project[] = [
     skills: ['Audience Engagement', 'Content Planning', 'YouTube Analytics'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-4')!,
-    videoStoragePath: '',
+    videoStoragePath: 'projects/4/video.mp4',
   },
 ];
