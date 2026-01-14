@@ -17,10 +17,12 @@ const About = () => {
             <p className="text-muted-foreground md:text-lg">
               {careerObjective}
             </p>
-            <Button variant="secondary" className="mt-4">
-              <Download className="mr-2 h-4 w-4" />
-              Download CV
-            </Button>
+            <a href="/sourabh_magadum_cv.pdf" download="Sourabh_Magadum_CV.pdf">
+              <Button variant="secondary" className="mt-4">
+                <Download className="mr-2 h-4 w-4" />
+                Download CV
+              </Button>
+            </a>
           </div>
           <div className="flex justify-center animate-in fade-in slide-in-from-right duration-500">
             <div className="relative h-80 w-80 lg:h-96 lg:w-96">
