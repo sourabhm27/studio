@@ -22,7 +22,7 @@ export const personalInfo = {
   phone: '7721002719',
   email: 'sourabhmagadum27@gmail.com',
   youtube: {
-    url: '#',
+    url: 'https://www.youtube.com/@Advhuduga',
     subscribers: '1088+',
   },
   instagram: {
