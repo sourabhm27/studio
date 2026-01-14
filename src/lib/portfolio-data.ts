@@ -160,4 +160,14 @@ export const projects: Project[] = [
     image: PlaceHolderImages.find(img => img.id === 'project-8')!,
     videoStoragePath: 'projects/3/video.mp4',
   },
+  {
+    id: '4',
+    title: 'Super Nan Child Care Assignment',
+    category: 'Long-form',
+    description: 'A long-form video project created as an assignment for Super Nan Child Care Pvt Limited, showcasing detailed editing and storytelling.',
+    skills: ['Adobe Premiere Pro', 'Storytelling', 'Long-form Editing'],
+    url: 'https://youtu.be/Wsg_x5pgc2k',
+    image: PlaceHolderImages.find(img => img.id === 'project-9')!,
+    videoStoragePath: 'projects/4/video.mp4',
+  }
 ];
