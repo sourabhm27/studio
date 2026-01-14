@@ -149,4 +149,15 @@ export const projects: Project[] = [
     image: PlaceHolderImages.find(img => img.id === 'project-7')!,
     videoStoragePath: 'projects/2/video.mp4',
   },
+  {
+    id: '3',
+    title: 'Electro Green Promotion',
+    category: 'Reels',
+    description:
+      'A promotional reel created for the Electro Green event, released 10 days prior to build excitement and anticipation.',
+    skills: ['Video Editing', 'Promotion', 'Social Media'],
+    url: 'https://youtube.com/shorts/-WGI60sMdvg',
+    image: PlaceHolderImages.find(img => img.id === 'project-8')!,
+    videoStoragePath: 'projects/3/video.mp4',
+  },
 ];
