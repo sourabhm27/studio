@@ -133,7 +133,7 @@ export const projects: Project[] = [
     category: 'Reels',
     description:
       'A dynamic and fast-paced reel capturing the highlights of the Electro Green event. This project won the reel-making competition, showcasing quick cuts, engaging music sync, and vibrant color grading.',
-    skills: ['Adobe Premiere Pro', 'Color Grading', 'Sound Design'],
+    skills: ['DaVinci Resolve', 'Color Grading', 'Sound Design'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-1')!,
     videoStoragePath: 'projects/1/video.mp4',
