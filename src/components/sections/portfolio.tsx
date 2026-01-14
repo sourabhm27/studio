@@ -7,7 +7,7 @@ import { Button } from '../ui/button';
 import { useUser } from '@/firebase';
 import { initiateAnonymousSignIn, useAuth } from '@/firebase';
 
-const categories: ProjectCategory[] = ['All', 'Short-form', 'Long-form', 'Reels', 'YouTube'];
+const categories: ProjectCategory[] = ['All', 'Short-form', 'Long-form', 'Reels'];
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
