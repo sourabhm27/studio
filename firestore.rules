@@ -1,0 +1,196 @@
+/**
+ * @file firestore.rules
+ * @description Security rules for the ReelCraft Portfolio application.
+ *
+ * @section Core Philosophy
+ * This ruleset enforces a strict user-ownership model. All user-generated content,
+ * such as profiles, projects, and contact form submissions, is stored within a
+ * hierarchical path beginning with `/users/{userId}`. This ensures that users can
+ * only access and modify their own data, providing strong data isolation.
+ *
+ * @section Data Structure
+ * - /users/{userId}: The root document for a user's profile.
+ * - /users/{userId}/projects/{projectId}: A subcollection for a user's portfolio projects.
+ * - /users/{userId}/contact_form_submissions/{submissionId}: A subcollection for contact messages received by the user.
+ * - /categories/{categoryId}: A top-level collection of global project categories (e.g., "Short-form").
+ * - /skills/{skillId}: A top-level collection of global skills (e.g., "Adobe Premiere Pro").
+ *
+ * @section Key Security Decisions
+ * - User Isolation: A user's data tree (`/users/{userId}`) is accessible only to that user.
+ * - No User Listing: It is not possible to list all documents in the top-level `/users` collection.
+ * - Public Lookups: The `/categories` and `/skills` collections are public and read-only for clients, intended to be managed by administrators through a backend process or the Firebase Console.
+ * - Contact Form Submissions: Any signed-in user can create a contact form submission for another user, but only the recipient user can read or delete their own submissions. Updates are disallowed to maintain message integrity.
+ *
+ * @section Denormalization for Authorization
+ * The data model is designed to avoid costly `get()` calls in security rules. By nesting
+ * user-specific data like `projects` under the user's path, authorization can be determined
+ * from the document path alone, leading to faster and more reliable security checks.
+ *
+ * @section Structural Segregation
+ * Private user data (profiles, projects) is structurally segregated from public global
+ * data (categories, skills) by using separate top-level collections. This is more secure and
+ * performant than mixing public and private data in a single collection.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // -------------------------------------------------------------------------
+    // Helper Functions
+    // -------------------------------------------------------------------------
+
+    /**
+     * Checks if the user is authenticated.
+     */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /**
+     * Checks if the requesting user's UID matches the provided userId.
+     */
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    /**
+     * Checks if a document exists and if the user is the owner.
+     * Used for secure update and delete operations.
+     */
+    function isExistingOwner(userId) {
+      return isOwner(userId) && resource != null;
+    }
+    
+    /**
+     * Validates that the user profile being created has an 'id' field
+     * that matches the user's auth UID.
+     */
+    function createsOwnValidProfile(userId) {
+      return isOwner(userId) && request.resource.data.id == userId;
+    }
+    
+    /**
+     * Validates that the user profile 'id' field is immutable on update.
+     */
+    function updatesOwnValidProfile(userId) {
+      // The 'id' field must not change once the profile is created.
+      return isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+    }
+    
+    /**
+     * Validates that a new project has a 'userProfileId' field that matches
+     * the owner's UID from the path.
+     */
+    function createsOwnValidProject(userProfileId) {
+      return isOwner(userProfileId) && request.resource.data.userProfileId == userProfileId;
+    }
+
+    /**
+     * Validates that a project's 'userProfileId' is immutable on update.
+     */
+    function updatesOwnValidProject(userProfileId) {
+      return isExistingOwner(userProfileId) && request.resource.data.userProfileId == resource.data.userProfileId;
+    }
+
+    /**
+     * Validates that a new contact submission is correctly linked to the
+     * portfolio owner specified in the path.
+     */
+    function createsValidContactSubmission(userProfileId) {
+      return isSignedIn() && request.resource.data.userProfileId == userProfileId;
+    }
+
+    // -------------------------------------------------------------------------
+    // User Profile Rules (/users)
+    // -------------------------------------------------------------------------
+
+    /**
+     * @description Manages user profile documents.
+     * @path /users/{userId}
+     * @allow (create) An authenticated user can create their own profile document.
+     * @deny (create) A user creating a profile for another user's UID.
+     * @principle Restricts access to a user's own data tree and enforces self-creation.
+     */
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if false; // Disallow listing of all users for privacy.
+      allow create: if createsOwnValidProfile(userId);
+      allow update: if updatesOwnValidProfile(userId);
+      allow delete: if isExistingOwner(userId);
+    }
+    
+    // -------------------------------------------------------------------------
+    // Project Rules (/users/{userProfileId}/projects)
+    // -------------------------------------------------------------------------
+
+    /**
+     * @description Manages a user's portfolio projects.
+     * @path /users/{userProfileId}/projects/{projectId}
+     * @allow (create) A user with auth.uid 'user123' creates a project in '/users/user123/projects/'.
+     * @deny (get) A user with auth.uid 'user456' tries to read a project from '/users/user123/projects/'.
+     * @principle Enforces strict document ownership within a user's private subcollection.
+     */
+    match /users/{userProfileId}/projects/{projectId} {
+      allow get: if isOwner(userProfileId);
+      allow list: if isOwner(userProfileId);
+      allow create: if createsOwnValidProject(userProfileId);
+      allow update: if updatesOwnValidProject(userProfileId);
+      allow delete: if isExistingOwner(userProfileId);
+    }
+
+    // -------------------------------------------------------------------------
+    // Contact Form Submission Rules (/users/{userProfileId}/contact_form_submissions)
+    // -------------------------------------------------------------------------
+
+    /**
+     * @description Manages contact form submissions for a specific user.
+     * @path /users/{userProfileId}/contact_form_submissions/{submissionId}
+     * @allow (create) Any authenticated user can create a submission for user 'user123'.
+     * @allow (read) User 'user123' reads their own submissions.
+     * @deny (read) User 'user456' tries to read submissions for 'user123'.
+     * @deny (update) Any user tries to update an existing submission.
+     * @principle Allows public write for creation but restricts read/delete access to the recipient. Submissions are immutable.
+     */
+    match /users/{userProfileId}/contact_form_submissions/{submissionId} {
+      allow get: if isOwner(userProfileId);
+      allow list: if isOwner(userProfileId);
+      allow create: if createsValidContactSubmission(userProfileId);
+      allow update: if false; // Submissions are immutable.
+      allow delete: if isExistingOwner(userProfileId);
+    }
+    
+    // -------------------------------------------------------------------------
+    // Global Read-Only Collections
+    // -------------------------------------------------------------------------
+    
+    /**
+     * @description Stores global project categories. Publicly readable by all, but not writable from the client.
+     * @path /categories/{categoryId}
+     * @allow (get, list) Any user, signed-in or not, can read categories.
+     * @deny (create, update, delete) No client can write to this collection.
+     * @principle Provides public, read-only data. Content should be managed via the Firebase Console or an Admin SDK.
+     */
+    match /categories/{categoryId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+    
+    /**
+     * @description Stores global skills. Publicly readable by all, but not writable from the client.
+     * @path /skills/{skillId}
+     * @allow (get, list) Any user, signed-in or not, can read skills.
+     * @deny (create, update, delete) No client can write to this collection.
+     * @principle Provides public, read-only data. Content should be managed via the Firebase Console or an Admin SDK.
+     */
+    match /skills/{skillId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "entities": {
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents a user profile in the ReelCraft Portfolio application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user profile."
+        },
+        "name": {
+          "type": "string",
+          "description": "The user's full name."
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's email address.",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The user's phone number."
+        },
+        "bio": {
+          "type": "string",
+          "description": "A brief biography or description of the user."
+        },
+        "youtubeChannel": {
+          "type": "string",
+          "description": "URL to the user's YouTube channel.",
+          "format": "uri"
+        },
+        "instagramProfile": {
+          "type": "string",
+          "description": "URL to the user's Instagram profile.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email"
+      ]
+    },
+    "Project": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Project",
+      "type": "object",
+      "description": "Represents a video editing project showcased in the portfolio.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the project."
+        },
+        "userProfileId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N Project)"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the project."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the project."
+        },
+        "videoUrl": {
+          "type": "string",
+          "description": "URL to the video of the project.",
+          "format": "uri"
+        },
+        "thumbnailUrl": {
+          "type": "string",
+          "description": "URL to the thumbnail image of the project.",
+          "format": "uri"
+        },
+        "categoryId": {
+          "type": "string",
+          "description": "Reference to Category. (Relationship: Category 1:N Project)"
+        },
+        "skillIds": {
+          "type": "array",
+          "description": "References to Skills used in the project. (Relationship: Skill N:N Project)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "userProfileId",
+        "title",
+        "description",
+        "videoUrl",
+        "categoryId"
+      ]
+    },
+    "Category": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Category",
+      "type": "object",
+      "description": "Represents a category of video editing projects (e.g., Short-form Content, Long-form Content, Reels, YouTube Videos).",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the category."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the category (e.g., Reels, YouTube Videos)."
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "Skill": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Skill",
+      "type": "object",
+      "description": "Represents a skill used in video editing projects (e.g., Adobe Premiere Pro, DaVinci Resolve, Final Cut Pro).",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the skill."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the skill (e.g., Adobe Premiere Pro, Color Correction)."
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "ContactFormSubmission": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactFormSubmission",
+      "type": "object",
+      "description": "Represents a contact form submission from a potential client.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the contact form submission."
+        },
+        "userProfileId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N ContactFormSubmission)"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the person submitting the form."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the person submitting the form.",
+          "format": "email"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message content from the contact form."
+        },
+        "submissionDate": {
+          "type": "string",
+          "description": "The date and time when the form was submitted.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "userProfileId",
+        "name",
+        "email",
+        "message",
+        "submissionDate"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Stores user profile data.  Path-based ownership ensures only the authenticated user can access their own profile.  The 'userId' parameter corresponds to the Firebase Auth UID.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The Firebase Auth UID of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userProfileId}/projects/{projectId}",
+        "definition": {
+          "entityName": "Project",
+          "schema": {
+            "$ref": "#/backend/entities/Project"
+          },
+          "description": "Stores video editing projects associated with a user. Path-based ownership is enforced via the userProfileId to ensure only the owner can access the projects.",
+          "params": [
+            {
+              "name": "userProfileId",
+              "description": "The Firebase Auth UID of the user who owns the project."
+            },
+            {
+              "name": "projectId",
+              "description": "The unique identifier for the project."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/categories/{categoryId}",
+        "definition": {
+          "entityName": "Category",
+          "schema": {
+            "$ref": "#/backend/entities/Category"
+          },
+          "description": "Stores categories of video editing projects.",
+          "params": [
+            {
+              "name": "categoryId",
+              "description": "The unique identifier for the category."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/skills/{skillId}",
+        "definition": {
+          "entityName": "Skill",
+          "schema": {
+            "$ref": "#/backend/entities/Skill"
+          },
+          "description": "Stores skills used in video editing projects.",
+          "params": [
+            {
+              "name": "skillId",
+              "description": "The unique identifier for the skill."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userProfileId}/contact_form_submissions/{contactFormSubmissionId}",
+        "definition": {
+          "entityName": "ContactFormSubmission",
+          "schema": {
+            "$ref": "#/backend/entities/ContactFormSubmission"
+          },
+          "description": "Stores contact form submissions associated with a user.  Path-based ownership is enforced via the userProfileId, ensuring only the owner can access the submissions.",
+          "params": [
+            {
+              "name": "userProfileId",
+              "description": "The Firebase Auth UID of the user who owns the contact form submissions."
+            },
+            {
+              "name": "contactFormSubmissionId",
+              "description": "The unique identifier for the contact form submission."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to prioritize authorization independence, clarity, and scalability. User profiles and their associated data (projects, contact form submissions) are stored in hierarchical paths under the `/users/{userId}` collection. This path-based ownership simplifies security rules and enhances data isolation.\n\n*   **Authorization Independence:** The `Project` and `ContactFormSubmission` collections are located under the respective `userProfileId`. This allows direct association and avoids the need for `get()` calls to parent documents to determine authorization, thereby ensuring atomic operations.\n*   **QAPs:** The structure supports secure `list` operations because each collection (`projects`, `contact_form_submissions`) maintains its own security context based on the user ID. There is no mixing of data requiring different access controls within the same collection.\n\nThe `categories` and `skills` collections are top-level collections, assuming they are globally accessible or managed by admins. If category creation or modifications need to be user-specific, they should be nested under the user profiles, similar to Projects."
+  }
+}
