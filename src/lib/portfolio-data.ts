@@ -134,7 +134,7 @@ export const projects: Project[] = [
     description:
       'A dynamic and fast-paced reel capturing the highlights of the Electro Green event. This project won the reel-making competition, showcasing quick cuts, engaging music sync, and vibrant color grading.',
     skills: ['DaVinci Resolve', 'Color Grading', 'Sound Design'],
-    url: '#',
+    url: 'https://youtu.be/83ZsdRWkmt4',
     image: PlaceHolderImages.find(img => img.id === 'project-1')!,
     videoStoragePath: 'projects/1/video.mp4',
   },
