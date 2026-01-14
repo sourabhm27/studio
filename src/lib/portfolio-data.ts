@@ -122,6 +122,7 @@ export interface Project {
   skills: string[];
   url: string;
   image: ImagePlaceholder;
+  videoStoragePath?: string;
 }
 
 export const projects: Project[] = [
@@ -134,6 +135,7 @@ export const projects: Project[] = [
     skills: ['Adobe Premiere Pro', 'Color Grading', 'Sound Design'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-1')!,
+    videoStoragePath: '',
   },
   {
     id: '2',
@@ -144,6 +146,7 @@ export const projects: Project[] = [
     skills: ['DaVinci Resolve', 'Motion Graphics', 'Visual Storytelling'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-2')!,
+    videoStoragePath: '',
   },
   {
     id: '3',
@@ -154,6 +157,7 @@ export const projects: Project[] = [
     skills: ['Final Cut Pro', 'Color Correction', 'Videography'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-3')!,
+    videoStoragePath: '',
   },
   {
     id: '4',
@@ -164,6 +168,7 @@ export const projects: Project[] = [
     skills: ['Audience Engagement', 'Content Planning', 'YouTube Analytics'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-4')!,
+    videoStoragePath: '',
   },
   {
     id: '5',
@@ -174,6 +179,7 @@ export const projects: Project[] = [
     skills: ['Reel Creation', 'Adobe Premiere Pro', 'Trending Formats'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-5')!,
+    videoStoragePath: '',
   },
   {
     id: '6',
@@ -184,5 +190,6 @@ export const projects: Project[] = [
     skills: ['After Effects Basics', 'Kinetic Typography', 'Sound Design'],
     url: '#',
     image: PlaceHolderImages.find(img => img.id === 'project-6')!,
+    videoStoragePath: '',
   },
 ];

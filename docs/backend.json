@@ -66,9 +66,9 @@
           "type": "string",
           "description": "A detailed description of the project."
         },
-        "videoUrl": {
+        "videoStoragePath": {
           "type": "string",
-          "description": "URL to the video of the project.",
+          "description": "Path to the video file in Firebase Storage.",
           "format": "uri"
         },
         "thumbnailUrl": {
@@ -93,7 +93,6 @@
         "userProfileId",
         "title",
         "description",
-        "videoUrl",
         "categoryId"
       ]
     },
@@ -278,5 +277,8 @@
       }
     ],
     "reasoning": "The Firestore data structure is designed to prioritize authorization independence, clarity, and scalability. User profiles and their associated data (projects, contact form submissions) are stored in hierarchical paths under the `/users/{userId}` collection. This path-based ownership simplifies security rules and enhances data isolation.\n\n*   **Authorization Independence:** The `Project` and `ContactFormSubmission` collections are located under the respective `userProfileId`. This allows direct association and avoids the need for `get()` calls to parent documents to determine authorization, thereby ensuring atomic operations.\n*   **QAPs:** The structure supports secure `list` operations because each collection (`projects`, `contact_form_submissions`) maintains its own security context based on the user ID. There is no mixing of data requiring different access controls within the same collection.\n\nThe `categories` and `skills` collections are top-level collections, assuming they are globally accessible or managed by admins. If category creation or modifications need to be user-specific, they should be nested under the user profiles, similar to Projects."
+  },
+  "storage": {
+    "bucket": "studio-5615753745-cf42a.appspot.com"
   }
 }

@@ -4,11 +4,19 @@ import { projects, ProjectCategory } from '@/lib/portfolio-data';
 import React, { useState } from 'react';
 import ProjectCard from '../project-card';
 import { Button } from '../ui/button';
+import { useUser } from '@/firebase';
+import { initiateAnonymousSignIn, useAuth } from '@/firebase';
 
 const categories: ProjectCategory[] = ['All', 'Short-form', 'Long-form', 'Reels', 'YouTube'];
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
+  const { user, isUserLoading } = useUser();
+  const auth = useAuth();
+
+  const handleSignIn = () => {
+    initiateAnonymousSignIn(auth);
+  };
 
   const filteredProjects =
     selectedCategory === 'All'
@@ -34,6 +42,13 @@ const Portfolio = () => {
             </Button>
           ))}
         </div>
+
+        {!user && !isUserLoading && (
+          <div className="mb-8">
+            <p className="mb-4 text-muted-foreground">Sign in to upload and manage your videos.</p>
+            <Button onClick={handleSignIn}>Sign In Anonymously</Button>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
