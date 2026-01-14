@@ -137,15 +137,4 @@ export const projects: Project[] = [
     image: PlaceHolderImages.find(img => img.id === 'project-1')!,
     videoStoragePath: 'projects/1/video.mp4',
   },
-  {
-    id: '4',
-    title: 'My YouTube Studio Tour',
-    category: 'YouTube',
-    description:
-      'An engaging video for my YouTube channel, taking my 1000+ subscribers on a tour of my content creation setup. This video is an example of my ability to connect with an audience directly.',
-    skills: ['Audience Engagement', 'Content Planning', 'YouTube Analytics'],
-    url: '#',
-    image: PlaceHolderImages.find(img => img.id === 'project-4')!,
-    videoStoragePath: 'projects/4/video.mp4',
-  },
 ];
