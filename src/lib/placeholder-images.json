@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "Dynamic event coverage reel",
+      "imageUrl": "https://images.unsplash.com/photo-1758939558639-7b826540047c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxldmVudCUyMHZpZGVvfGVufDB8fHx8MTc2ODQwODU1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event video"
+    },
+    {
+      "id": "project-2",
+      "description": "Sleek product demonstration video",
+      "imageUrl": "https://images.unsplash.com/photo-1641671668696-f5061907290f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9kdWN0JTIwdmlkZW98ZW58MHx8fHwxNzY4MzExNzI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "product video"
+    },
+    {
+      "id": "project-3",
+      "description": "Cinematic travel vlog footage",
+      "imageUrl": "https://images.unsplash.com/photo-1614759312981-8a3f0cc4a94a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJhdmVsJTIwZHJvbmV8ZW58MHx8fHwxNzY4Mzg2MzMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "travel drone"
+    },
+    {
+      "id": "project-4",
+      "description": "Engaging YouTube tech review setup",
+      "imageUrl": "https://images.unsplash.com/photo-1626251851903-1143b5c6f057?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx5b3V0dWJlJTIwc2V0dXB8ZW58MHx8fHwxNzY4NDA4NTU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "youtube setup"
+    },
+    {
+      "id": "project-5",
+      "description": "Fast-paced short-form ad for social media",
+      "imageUrl": "https://images.unsplash.com/photo-1761864294727-3c9f6b3e7425?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MXwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYXxlbnwwfHx8fDE3NjgzNTg5MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "social media"
+    },
+    {
+      "id": "project-6",
+      "description": "Creative kinetic typography animation",
+      "imageUrl": "https://images.unsplash.com/photo-1628494391268-c9935bc384d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb3Rpb24lMjBncmFwaGljc3xlbnwwfHx8fDE3Njg0MDg1NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "motion graphics"
+    }
+  ]
 }
