@@ -17,7 +17,7 @@ const About = () => {
             <p className="text-muted-foreground md:text-lg">
               {careerObjective}
             </p>
-            <a href="/sourabh_magadum_cv.pdf" download="Sourabh_Magadum_CV.pdf">
+            <a href="/sourabh_magadum_cv.html" download="Sourabh_Magadum_CV.html">
               <Button variant="secondary" className="mt-4">
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
