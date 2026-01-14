@@ -26,7 +26,7 @@ export const personalInfo = {
     subscribers: '1088+',
   },
   instagram: {
-    url: '#',
+    url: 'https://www.instagram.com/adventure_huduga_05?igsh=MW95dWNwMWFsZGdoOQ==',
     followers: '477+',
   },
 };
