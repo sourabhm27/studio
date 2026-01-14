@@ -39,7 +39,13 @@ const Experience = () => {
                 </div>
                 <div>
                   <h4 className="font-headline font-semibold">{item.title}</h4>
-                  <p className="text-sm font-medium text-muted-foreground">{item.subtitle}</p>
+                  {item.title === 'Winner – Photography & Reel Making Competition' ? (
+                     <a href="https://www.instagram.com/electro__green?igsh=MXM1ajBmdGlvM2ZnZA==" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-muted-foreground hover:text-primary underline">
+                        {item.subtitle}
+                    </a>
+                  ) : (
+                    <p className="text-sm font-medium text-muted-foreground">{item.subtitle}</p>
+                  )}
                   <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
                 </div>
               </div>
