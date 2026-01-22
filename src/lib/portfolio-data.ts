@@ -199,19 +199,6 @@ export const projects: Project[] = [
     videoStoragePath: 'projects/5/video.mp4',
   },
   {
-    id: '6',
-    title: 'Podcast Short Video',
-    category: 'Reels',
-    description: 'A short, engaging clip from a podcast, edited for social media.',
-    skills: ['Video Editing', 'Social Media', 'Audio Sync'],
-    url: 'https://youtube.com/shorts/oaBBUJ9F028?feature=share',
-    image: {
-      "imageUrl": "https://images.unsplash.com/photo-1589903362137-298a4bab4f9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb2RjYXN0fGVufDB8fHx8MTc2ODUxMDQwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "podcast microphone"
-    },
-    videoStoragePath: 'projects/6/video.mp4',
-  },
-  {
     id: '7',
     title: 'Recruiter Company Promotion',
     category: 'Reels',
