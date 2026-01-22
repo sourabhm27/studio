@@ -122,7 +122,7 @@ export interface Project {
   description: string;
   skills: string[];
   url: string;
-  image: ImagePlaceholder;
+  image?: ImagePlaceholder;
   videoStoragePath?: string;
 }
 
@@ -135,7 +135,7 @@ export const projects: Project[] = [
       'A dynamic and fast-paced reel capturing the highlights of the Electro Green event. This project won the reel-making competition, showcasing quick cuts, engaging music sync, and vibrant color grading.',
     skills: ['DaVinci Resolve', 'Color Grading', 'Sound Design'],
     url: 'https://youtu.be/83ZsdRWkmt4',
-    image: PlaceHolderImages.find(img => img.id === 'project-1')!,
+    image: PlaceHolderImages.find(img => img.id === 'project-1'),
     videoStoragePath: 'projects/1/video.mp4',
   },
   {
@@ -146,7 +146,7 @@ export const projects: Project[] = [
       'Where ideas spark and dreams take flight, this is E Cell SMVIT! Let’s build, create, and hustle.',
     skills: ['Video Editing', 'Community', 'Promotion'],
     url: 'https://youtu.be/dSh6yQt6GFQ',
-    image: PlaceHolderImages.find(img => img.id === 'project-7')!,
+    image: PlaceHolderImages.find(img => img.id === 'project-7'),
     videoStoragePath: 'projects/2/video.mp4',
   },
   {
@@ -157,7 +157,7 @@ export const projects: Project[] = [
       'A promotional reel created for the Electro Green event, released 10 days prior to build excitement and anticipation.',
     skills: ['Video Editing', 'Promotion', 'Social Media'],
     url: 'https://youtube.com/shorts/-WGI60sMdvg',
-    image: PlaceHolderImages.find(img => img.id === 'project-8')!,
+    image: PlaceHolderImages.find(img => img.id === 'project-8'),
     videoStoragePath: 'projects/3/video.mp4',
   },
   {
@@ -167,7 +167,7 @@ export const projects: Project[] = [
     description: 'A long-form video project created as an assignment for Super Nan Child Care Pvt Limited, showcasing detailed editing and storytelling.',
     skills: ['Adobe Premiere Pro', 'Storytelling', 'Long-form Editing'],
     url: 'https://youtu.be/Wsg_x5pgc2k',
-    image: PlaceHolderImages.find(img => img.id === 'project-9')!,
+    image: PlaceHolderImages.find(img => img.id === 'project-9'),
     videoStoragePath: 'projects/4/video.mp4',
   },
   {
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     description: 'A creative concept video created as an assignment for Concept Media.',
     skills: ['Video Editing', 'Concept Development', 'Social Media'],
     url: 'https://youtube.com/shorts/0igs_zKyV8c',
-    image: PlaceHolderImages.find(img => img.id === 'project-5')!,
+    image: PlaceHolderImages.find(img => img.id === 'project-5'),
     videoStoragePath: 'projects/5/video.mp4',
   },
   {
@@ -187,7 +187,7 @@ export const projects: Project[] = [
     description: 'A short, engaging clip from a podcast, edited for social media.',
     skills: ['Video Editing', 'Social Media', 'Audio Sync'],
     url: 'https://youtube.com/shorts/oaBBUJ9F028?feature=share',
-    image: PlaceHolderImages.find(img => img.id === 'project-10')!,
+    image: PlaceHolderImages.find(img => img.id === 'project-10'),
     videoStoragePath: 'projects/6/video.mp4',
   },
 ];

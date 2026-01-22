@@ -1,3 +1,4 @@
+
 import React from 'react';
 import type { Project } from '@/lib/portfolio-data';
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card';
@@ -15,13 +16,19 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <Card className="group flex h-full flex-col cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-2">
             <CardHeader className="p-0">
             <div className="relative h-48 w-full">
-                <Image
-                src={project.image.imageUrl}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                data-ai-hint={project.image.imageHint}
-                />
+                {project.image ? (
+                    <Image
+                    src={project.image.imageUrl}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={project.image.imageHint}
+                    />
+                ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-muted">
+                        <p className="text-muted-foreground">Image not available</p>
+                    </div>
+                )}
                 <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/40"></div>
             </div>
             </CardHeader>

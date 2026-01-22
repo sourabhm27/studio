@@ -1,3 +1,4 @@
+
 import React, { type ReactNode, useState, useEffect } from 'react';
 import type { Project } from '@/lib/portfolio-data';
 import {
@@ -51,13 +52,21 @@ const ProjectModal = ({ project, children }: ProjectModalProps) => {
             {videoUrl ? (
               <video src={videoUrl} controls className="h-full w-full object-contain bg-black" />
             ) : (
-              <Image
-                src={project.image.imageUrl}
-                alt={project.title}
-                fill
-                className="object-cover"
-                data-ai-hint={project.image.imageHint}
-              />
+                <>
+                {project.image ? (
+                    <Image
+                        src={project.image.imageUrl}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={project.image.imageHint}
+                    />
+                ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-muted">
+                        <p className="text-muted-foreground">Image not available</p>
+                    </div>
+                )}
+                </>
             )}
              {user && !videoUrl && !showUploader && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/50">
