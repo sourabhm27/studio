@@ -211,4 +211,17 @@ export const projects: Project[] = [
     },
     videoStoragePath: 'projects/6/video.mp4',
   },
+  {
+    id: '7',
+    title: 'Recruiter Company Promotion',
+    category: 'Reels',
+    description: 'A promotional video created for a recruitment company to attract talent. This short video highlights the company culture and opportunities.',
+    skills: ['Video Editing', 'Corporate Video', 'Social Media'],
+    url: 'https://youtube.com/shorts/USzfUdJd7jA',
+    image: {
+      "imageUrl": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZWNydWl0bWVudCUyMG9mZmljZXxlbnwwfHx8fDE3Njg1MTE5ODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "recruitment office"
+    },
+    videoStoragePath: 'projects/7/video.mp4',
+  },
 ];
