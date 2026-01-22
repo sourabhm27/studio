@@ -3,11 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import React from 'react';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const About = () => {
-  const profileImage = PlaceHolderImages.find(img => img.id === 'profile') || { imageUrl: 'https://picsum.photos/seed/profile/500/500', imageHint: 'profile picture' };
-
   return (
     <section id="about" className="bg-card">
       <div className="container mx-auto px-4 md:px-6">

@@ -14,8 +14,6 @@ import {
   GraduationCap,
   Award
 } from 'lucide-react';
-import type { ImagePlaceholder } from './placeholder-images';
-import { PlaceHolderImages } from './placeholder-images';
 
 export const personalInfo = {
   name: 'Sourabh Basagonda Magadum',
@@ -115,6 +113,11 @@ export const interests = ['Video Editing', 'Visual Storytelling', 'Content Creat
 
 export type ProjectCategory = 'All' | 'Short-form' | 'Long-form' | 'Reels';
 
+export type ImageInfo = {
+  imageUrl: string;
+  imageHint: string;
+};
+
 export interface Project {
   id: string;
   title: string;
@@ -122,7 +125,7 @@ export interface Project {
   description: string;
   skills: string[];
   url: string;
-  image?: ImagePlaceholder;
+  image?: ImageInfo;
   videoStoragePath?: string;
 }
 
@@ -135,7 +138,10 @@ export const projects: Project[] = [
       'A dynamic and fast-paced reel capturing the highlights of the Electro Green event. This project won the reel-making competition, showcasing quick cuts, engaging music sync, and vibrant color grading.',
     skills: ['DaVinci Resolve', 'Color Grading', 'Sound Design'],
     url: 'https://youtu.be/83ZsdRWkmt4',
-    image: PlaceHolderImages.find(img => img.id === 'project-1'),
+    image: {
+      "imageUrl": "https://images.unsplash.com/photo-1758939558639-7b826540047c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxldmVudCUyMHZpZGVvfGVufDB8fHx8MTc2ODQwODU1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event video"
+    },
     videoStoragePath: 'projects/1/video.mp4',
   },
   {
@@ -146,7 +152,10 @@ export const projects: Project[] = [
       'Where ideas spark and dreams take flight, this is E Cell SMVIT! Let’s build, create, and hustle.',
     skills: ['Video Editing', 'Community', 'Promotion'],
     url: 'https://youtu.be/dSh6yQt6GFQ',
-    image: PlaceHolderImages.find(img => img.id === 'project-7'),
+    image: {
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbnRyZXByZW5ldXJzaGlwJTIwZXZlbnR8ZW58MHx8fHwxNzY4NDk0ODUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "entrepreneurship event"
+    },
     videoStoragePath: 'projects/2/video.mp4',
   },
   {
@@ -157,7 +166,10 @@ export const projects: Project[] = [
       'A promotional reel created for the Electro Green event, released 10 days prior to build excitement and anticipation.',
     skills: ['Video Editing', 'Promotion', 'Social Media'],
     url: 'https://youtube.com/shorts/-WGI60sMdvg',
-    image: PlaceHolderImages.find(img => img.id === 'project-8'),
+    image: {
+      "imageUrl": "https://images.unsplash.com/photo-1631387019069-2ff599943f9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9tbyUyMHZpZGVvfGVufDB8fHx8MTc2ODQxNDQwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "promo video"
+    },
     videoStoragePath: 'projects/3/video.mp4',
   },
   {
@@ -167,7 +179,10 @@ export const projects: Project[] = [
     description: 'A long-form video project created as an assignment for Super Nan Child Care Pvt Limited, showcasing detailed editing and storytelling.',
     skills: ['Adobe Premiere Pro', 'Storytelling', 'Long-form Editing'],
     url: 'https://youtu.be/Wsg_x5pgc2k',
-    image: PlaceHolderImages.find(img => img.id === 'project-9'),
+    image: {
+      "imageUrl": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGlsZCUyMGNhcmV8ZW58MHx8fHwxNzY4NTAwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "child care"
+    },
     videoStoragePath: 'projects/4/video.mp4',
   },
   {
@@ -177,7 +192,10 @@ export const projects: Project[] = [
     description: 'A creative concept video created as an assignment for Concept Media.',
     skills: ['Video Editing', 'Concept Development', 'Social Media'],
     url: 'https://youtube.com/shorts/0igs_zKyV8c',
-    image: PlaceHolderImages.find(img => img.id === 'project-5'),
+    image: {
+      "imageUrl": "https://images.unsplash.com/photo-1761864294727-3c9f6b3e7425?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MXwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYXxlbnwwfHx8fDE3NjgzNTg5MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "social media"
+    },
     videoStoragePath: 'projects/5/video.mp4',
   },
   {
@@ -187,7 +205,10 @@ export const projects: Project[] = [
     description: 'A short, engaging clip from a podcast, edited for social media.',
     skills: ['Video Editing', 'Social Media', 'Audio Sync'],
     url: 'https://youtube.com/shorts/oaBBUJ9F028?feature=share',
-    image: PlaceHolderImages.find(img => img.id === 'project-10'),
+    image: {
+      "imageUrl": "https://images.unsplash.com/photo-1589903362137-298a4bab4f9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwb2RjYXN0fGVufDB8fHx8MTc2ODUxMDQwN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "podcast microphone"
+    },
     videoStoragePath: 'projects/6/video.mp4',
   },
 ];
