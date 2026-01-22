@@ -113,7 +113,7 @@ export const educationAndAchievements = [
 export const languages = ['Kannada (Native)', 'English (Professional)', 'Hindi (Conversational)'];
 export const interests = ['Video Editing', 'Visual Storytelling', 'Content Creation', 'Photography', 'Exploring Creative Trends'];
 
-export type ProjectCategory = 'All' | 'Short-form' | 'Long-form' | 'Reels' | 'YouTube';
+export type ProjectCategory = 'All' | 'Short-form' | 'Long-form' | 'Reels';
 
 export interface Project {
   id: string;
@@ -141,7 +141,7 @@ export const projects: Project[] = [
   {
     id: '2',
     title: 'E Cell SMVIT',
-    category: 'YouTube',
+    category: 'Short-form',
     description:
       'Where ideas spark and dreams take flight, this is E Cell SMVIT! Let’s build, create, and hustle.',
     skills: ['Video Editing', 'Community', 'Promotion'],
@@ -179,5 +179,15 @@ export const projects: Project[] = [
     url: 'https://youtube.com/shorts/0igs_zKyV8c',
     image: PlaceHolderImages.find(img => img.id === 'project-5')!,
     videoStoragePath: 'projects/5/video.mp4',
-  }
+  },
+  {
+    id: '6',
+    title: 'Podcast Short Video',
+    category: 'Reels',
+    description: 'A short, engaging clip from a podcast, edited for social media.',
+    skills: ['Video Editing', 'Social Media', 'Audio Sync'],
+    url: 'https://youtube.com/shorts/oaBBUJ9F028?feature=share',
+    image: PlaceHolderImages.find(img => img.id === 'project-10')!,
+    videoStoragePath: 'projects/6/video.mp4',
+  },
 ];
